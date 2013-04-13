@@ -1,0 +1,11 @@
+//= require jquery
+//= require jquery_ujs
+//= require jquery.putcursoratend
+//= require jquery.cookie
+//= require jquery.pubsub
+//= require fitvids
+//= require showdown
+//= require underscore
+//= require _fn
+//= require turbolinks
+//= require_tree ./admin

@@ -1,0 +1,49 @@
+- placeholder ||= 'Title here...'
+= form_for @post, url: @post_path do |f|
+  = render partial: 'form', locals: { f: f, placeholder: placeholder }
+  #post-preview.split-section
+    .inner
+  #bar
+    = link_to 'Back', admin_path, id: "back-button", class: 'icon-arrow-left'
+    = link_to 'Preview', '#preview', id: 'preview-button', class: 'icon-eye-open'
+    .middle
+      #menu-date.menu
+        = link_to 'Date', '#', id: 'date-button', class: 'icon-calendar'
+        ul#date.sub-menu
+          li
+            = f.label :published_at, 'Published Date'
+            = f.text_field :published_at, value: f.object.published_at
+      #menu-link.menu
+        = link_to 'Link', '#link', class: 'icon-link'
+        ul#link.sub-menu
+          li
+            = f.label :slug, 'Permalink'
+            = f.text_field :slug, placeholder: 'Leave blank to automatically generate'
+          li
+            = f.label :url, 'External URL'
+            = f.text_field :url, placeholder: 'Optional'
+      .menu
+        = link_to 'Stats', '#stats', class: 'icon-bar-chart', id: 'stats-button'
+        ul#stats.sub-menu
+          li
+            label Wordcount
+            span#wordcount
+          li
+            label Views
+            span#views
+          li
+            label Reads
+            span#reads
+      .menu
+        - link_to 'History', '#history', class: 'icon-list'
+        ul#history.sub-menu
+          li= f.label :url, 'History'
+          li= link_to 'Version 3', '#'
+          li= link_to 'Version 2', '#'
+          li= link_to 'Version 1', '#'
+    .bottom
+      = link_to 'Draft', '#', id: 'publish-button', class: 'icon-edit'
+      = link_to 'Delete', @post, confirm: 'Are you sure?', method: :delete, class: 'icon-trash'
+  .hide
+    = f.check_box :draft
+button#save-button.animated

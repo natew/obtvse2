@@ -1,0 +1,10 @@
+<% def env(a, b); e = ENV["obtvse_#{a}"]; e ? e : b; end %>
+
+name:    <%= env :name,    'Full Name' %>
+twitter: <%= env :twitter, 'handle' %>
+github:  <%= env :github,  'username'  %>
+email:   <%= env :email,   'email@example.com'  %>
+about:   <%= env :about,   'Tagline.' %>
+
+# Google Analytics
+ga_id:   <%= env :ga,      ''  %>
