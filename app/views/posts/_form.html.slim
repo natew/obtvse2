@@ -1,19 +1,18 @@
 - placeholder ||= ''
 
 #post-editor.split-section
-  .inner
-    - if @post.errors.any?
-      .notice
-        - @post.errors.full_messages.each do |msg|
-          = msg
-    #text-title.expandingArea
+  - if @post.errors.any?
+    .notice
+      - @post.errors.full_messages.each do |msg|
+        = msg
+  #text-title.expandingArea
+    pre
+      span
+      br/
+    = f.text_area :title, rows: 1, placeholder: placeholder
+  fieldset#content-fieldset.markdown
+    #text-content.expandingArea
       pre
         span
         br/
-      = f.text_area :title, rows: 1, placeholder: placeholder
-    fieldset#content-fieldset.markdown
-      #text-content.expandingArea
-        pre
-          span
-          br/
-        = f.text_area :content, placeholder: 'Write post here', class: 'faded'
+      = f.text_area :content, placeholder: 'Write post here', class: 'faded'

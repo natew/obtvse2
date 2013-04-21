@@ -1,17 +1,16 @@
 = content_for(:title) { "Admin" }
 
 = form_for @post do |f|
-  = render partial: 'form', locals: { f: f, placeholder: "Type your idea" }
+  = render partial: 'form', locals: { f: f, placeholder: "" }
 
 #posts
-  .inner
-    #drafts.col.active
-      h2 Ideas
-      ul data-items="#{@drafts.to_json(:only => [:id, :title])}"
-        = render partial: 'li', collection: @drafts
-    #published.col
-      h2 Published
-      ul data-items="#{@published.to_json(only: [:id, :title])}"
-        = render partial: 'li', collection: @published
+  #drafts.col.active
+    h2 Drafts
+    ul data-items="#{@drafts.to_json(:only => [:id, :title])}"
+      = render partial: 'li', collection: @drafts
+  #published.col
+    h2 Live
+    ul data-items="#{@published.to_json(only: [:id, :title])}"
+      = render partial: 'li', collection: @published
   .hide
     = link_to '', new_post_path, id: 'new-post'

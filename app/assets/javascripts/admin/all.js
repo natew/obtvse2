@@ -45,7 +45,6 @@ $(function() {
   // Permanent bindings
   $(window)
     .mousemove(function windowMouseMove(e){
-      setBarVisibility(e);
       addMovingClassToBodyIfMouseMoving();
     });
 
@@ -100,13 +99,3 @@ function addMovingClassToBodyIfMouseMoving() {
     $('body').removeClass('moving');
   }, 1000);
 }
-
-var setBarVisibility = _.debounce(function(e) {
-  // Accurate detection for bar hover
-  if (state.editing) {
-    if (e.pageX < 90)
-      showBar(true);
-    else if (e.pageX > 95 && !$('#bar:hover').length)
-      delayedHideBar();
-  }
-}, 15);

@@ -10,7 +10,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'slim', '~> 1.2'
 gem 'turbolinks', '~> 1.0'
 gem 'jquery-rails', '~> 2'
-gem 'bourbon', '~> 2.0.0.rc1'
+gem 'compass-rails'
 
 # Markdown
 gem 'kramdown', '~> 1.0', require: false
@@ -42,6 +42,9 @@ group :development, :test do
   gem 'capistrano'
   gem 'capistrano_colors'
   gem 'quiet_assets'
+  gem 'guard-livereload', require: false
+  gem 'rack-livereload'
+  gem 'rb-fsevent', require: false
 end
 
 group :assets do
