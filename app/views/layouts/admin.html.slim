@@ -8,9 +8,9 @@ html lang="en-US"
     = render partial: 'application/typekit'
     link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900' rel='stylesheet' type='text/css'
   body class="admin #{action_name}"
-    a#blog-button href="#{root_path}" data-no-turbolink="true" class="open-external"
+    = render partial: 'shared/edit_button', locals: { icon: 'reorder' }
+    #sheet
     #admin
-      #fade
       = yield
     #modal.modal
       .modal-header

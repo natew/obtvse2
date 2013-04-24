@@ -1,8 +1,11 @@
 @import "compass/css3";
 @import "theme";
 
+$admin-pad: 20px;
 $admin-bg: #f2f2f2;
-$admin-bar-bg: #eee;
+$admin-editing-bg: #fff;
+$admin-bar-bg: $admin-editing-bg;
+$admin-bar-border-color: #ddd;
 $admin-bar-border: darken($admin-bar-bg,6%);
 
 $bar-height: 70px;
@@ -22,19 +25,41 @@ body.admin {
     margin: 0 8px 0 0;
   }
 
-  #blog-button { opacity: 0;
+  #edit-button {
+    z-index: 100000;
+    opacity: 0;
+
     &:hover { opacity: 1; }}
 
   &.moving {
-    #blog-button,
+    #edit-button,
     #save-button { opacity: 1; }
   }
 }
 
 body.edit {
-  background: #fff;
+  background: $admin-editing-bg;
   
   #admin {
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      position: fixed;
+      top: $admin-pad;
+      height: 1.5em;
+      z-index: 13;
+      width: 100%;
+      pointer-events: none;
+      @include background-image(linear-gradient(top, rgba($admin-editing-bg, 1), rgba($admin-editing-bg, 0)));
+    }
+
+    &:after {
+      top: auto;
+      bottom: $admin-pad + $bar-height;
+      @include background-image(linear-gradient(bottom, rgba($admin-editing-bg, 1), rgba($admin-editing-bg, 0)));
+    }
+
     #post-editor {
       bottom: $bar-height;
       height: auto;
@@ -60,13 +85,13 @@ body.edit {
 }
 
 #save-button {
-  background: $admin-bg;
+  background: $admin-bar-bg;
   width: 12px;
   height: 12px;
   display: inline-block;
   position: absolute;
-  top: 20px;
-  right: 40px;
+  bottom: $bar-height / 2 - $admin-pad - 6;
+  right: 160px;
   z-index: 10000;
   border: none;
   @include border-radius(8px);
@@ -77,8 +102,6 @@ body.edit {
   &.error {background:#bc3c2b;}
 }
 
-$admin-pad: 20px;
-
 #admin {
   position: absolute;
   top: $admin-pad;
@@ -87,15 +110,26 @@ $admin-pad: 20px;
   bottom: $admin-pad;
   overflow: hidden;
 
-  #text-title, h1 {
-    margin: 0;
+  #text-title {
+    margin: 0 -10px;
     background: #fff;
-    @include box-shadow(0 0 10px rgba(0,0,0,0.2));
+  }
 
+  h1 {
+    margin: 0;
+  }
+
+  #text-title, h1 {
     pre,
     textarea {
       padding: 10px;
       text-align: left;
+    }
+  }
+
+  #text-content {
+    pre, textarea {
+      margin-bottom: 20px;
     }
   }
 
@@ -114,6 +148,7 @@ $admin-pad: 20px;
 
     &.active {
       h2 {
+        color: #222;
       }
     }
 
@@ -153,20 +188,18 @@ $admin-pad: 20px;
 
       &.selected {
         &:before {
-          // content: "\f0da";
-          // font-family: FontAwesome;
-          // display: block;
-          // color: #aaa;
-          // position: absolute;
-          // top: .1em;
-          // left: -12px;
-          // font-size: 14px;
+          content: "";
+          width: 3px;
+          position: absolute;
+          top: 0;
+          left: -10px;
+          bottom: 0;
+          background: $theme;
         }
 
         a {
           position: relative;
-          color: #222;
-          font-weight: bold;
+          color: $theme;
         }
       }
 
@@ -252,14 +285,12 @@ form .permalink {
 }
 
 .transition {
-  .split-section,
   #bar {@include transition(all .2s ease-out);}
 }
 
 .split-section {
-  height: 100%;
+  bottom: $bar-height;
   position: fixed;
-  width: 50%;
 
   .inner {
     padding: 10px 20px;
@@ -271,8 +302,10 @@ form .permalink {
   overflow: auto;
   top: 0;
   left: 0;
-  bottom: 100px;
-  width: 100%;
+  padding-right: 16px;
+  right: -16px;
+  bottom: $bar-height + 20;
+  width: auto;
   position: absolute;
 
   .inner {
@@ -284,9 +317,14 @@ form .permalink {
 #post-preview {
   background: #f0f4fc;
   border-left: 1px solid #dbe3f1;
-  right: -50%;
+  opacity: 0;
+  z-index: -1;
   overflow: hidden;
   overflow-y: auto;
+  top: 0;
+  right: -16px;
+  left: 50%;
+  padding-top: $admin-pad;
 
   .inner {
     width: auto;
@@ -295,9 +333,9 @@ form .permalink {
 
 #admin.preview {
   #post-editor {
-    padding: 0 20px;
-    margin: 0;
-    width: 50%;
+    padding: 0 16px 0 0;
+    margin: 0 -16px 0 0;
+    right: 50%;
     left: 0;
 
     .inner {
@@ -307,8 +345,8 @@ form .permalink {
   }
 
   #post-preview {
-    right: 0;
-    z-index: 12;
+    z-index: 14;
+    opacity: 1;
   }
 
   #post_content:before {top: 0;}
@@ -319,11 +357,8 @@ form .permalink {
 }
 
 .preview #bar {
-  left: -70px;
-  cursor: pointer;
-
-  &:hover {
-    background: #ccc;
+  #back-button {
+    display: none;
   }
 }
 
@@ -332,10 +367,11 @@ form .permalink {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 11;
+  z-index: 14;
   opacity: 1;
   padding: 0 $admin-pad;
   background: $admin-bar-bg;
+  border-top: 1px solid $admin-bar-border-color;
   height: $bar-height;
 
   a {
@@ -348,6 +384,10 @@ form .permalink {
     display: block;
     text-align: center;
     float: left;
+
+    &:hover, &:hover:before {
+      color: $theme;
+    }
   }
 
   .middle {
@@ -450,32 +490,4 @@ form .permalink {
   top: 0;
   left: 0;
   z-index: -1;
-}
-
-#fade {
-  display: none;
-  pointer-events: none;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-}
-
-/* fade to white */
-#fade:before,
-#fade:after {
-  content: "";
-  display: block;
-  position: fixed;
-  top: 0;
-  height: 1.5em;
-  width: 100%;
-  pointer-events: none;
-  @include background-image(linear-gradient(top, rgba($admin-bg, 1), rgba($admin-bg, 0)));
-}
-
-#fade:after {
-  top: auto;
-  bottom: 0 ;
-  @include background-image(linear-gradient(bottom, rgba($admin-bg, 1), rgba($admin-bg, 0)));
 }

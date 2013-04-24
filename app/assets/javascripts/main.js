@@ -1,5 +1,6 @@
 $(function() {
-  var $html = $('html');
+  var $html = $('html'),
+      $body = $('body');
 
   $html.addClass('transition');
   setTimeout(function(){$html.addClass('change')},400);
@@ -52,7 +53,11 @@ $(function() {
     });
 
     if ($('body').is('.no-users')) {
-      $('#blog-button').click();
+      $('#edit-button').click();
+    }
+
+    if ($body.is('.posts.show')) {
+      $('#edit-button').attr('href', $('#edit-link').data('href'));
     }
   }
 });
