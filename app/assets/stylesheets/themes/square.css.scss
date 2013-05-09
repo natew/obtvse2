@@ -6,7 +6,7 @@ $line-height: 1.4em;
 
 $header-width: 240px;
 $header-pad: 40px;
-$content-pad: 40px;
+$content-pad: 60px;
 
 $header-name: #333;
 $header-text: #fff;
@@ -18,7 +18,7 @@ html {
   font-size: 62.5%;
 }
 
-body, textarea, pre, input {
+body, textarea, input {
   font-family: 'freight-sans-pro', Helvetica, Arial, sans-serif;
   font-size: 2.0rem;
   line-height: $line-height;
@@ -296,6 +296,10 @@ header {
 
     &.collapsed {
       margin: 0 0 1.2em 0;
+
+      h1 {
+        font-size: 2.4rem;
+      }
     }
 
     p:first-child {
@@ -364,6 +368,8 @@ nav.pagination {
       position: absolute;
       top: $content-pad + 40;
       left: $content-pad;
+      right: 300px;
+      width: auto;
     }
 
     #header-content {

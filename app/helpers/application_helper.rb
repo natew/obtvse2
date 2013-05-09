@@ -6,7 +6,16 @@ module ApplicationHelper
   end
 
   def markdown(text)
-    Kramdown::Document.new(youtube_embed(text)).to_html
+    Kramdown::Document.new(youtube_embed(text), {
+      enable_coderay: true,
+      coderay_default_lang: :ruby,
+      coderay_wrap: :div,
+      coderay_line_numbers: :table,
+      coderay_line_numbers_start: 1,
+      coderay_tab_width: 2,
+      coderay_css: :style,
+      coderay_bold_every: 10000
+    }).to_html.html_safe
   end
 
   def youtube_embed(str)
