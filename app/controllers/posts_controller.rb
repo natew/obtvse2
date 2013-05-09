@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :require_login, except: [:index, :show]
+  before_filter :require_login, except: [:index, :show, :admin]
   layout 'admin', except: [:index, :show]
 
   def index
@@ -32,10 +32,14 @@ class PostsController < ApplicationController
   end
 
   def admin
-    @no_header = true
-    @post = Post.new
-    @published = Post.where(draft:false).order('published_at desc')
-    @drafts = Post.where(draft:true).order('updated_at desc')
+    if logged_in?
+      @no_header = true
+      @post = Post.new
+      @published = Post.where(draft:false).order('published_at desc')
+      @drafts = Post.where(draft:true).order('updated_at desc')
+    else
+      render 'sessions/new'
+    end
   end
 
   def new
@@ -86,8 +90,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find_by_slug(params[:slug])
+    @post = Post.find_by_slug(params[:id])
     @post.destroy
+    flash[:notice] = 'Post has been deleted'
 
     respond_to do |format|
       format.html { redirect_to '/admin' }

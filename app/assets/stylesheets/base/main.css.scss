@@ -1,5 +1,5 @@
 @import "compass/css3";
-@import "theme";
+@import "color_scheme";
 
 ::selection, ::-moz-selection {
   background: $selection-bg;
@@ -43,7 +43,7 @@ body {
 }
 
 .inner {
-  width: $width;
+  width: 620px;
   position: relative;
   margin: 0 auto;
 }
@@ -99,7 +99,7 @@ aside {
 #edit-button {
   display: block;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   top: 1em;
   right: 1em;
   z-index: 100;

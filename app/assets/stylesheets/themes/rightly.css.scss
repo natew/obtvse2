@@ -1,10 +1,8 @@
-@import "../theme";
+@import "../color_scheme";
 @import "compass/css3";
 
-/*
-  Fonts
-    fonts are overwritten by /fonts css files
-*/
+$width: 620px;
+$width-big: 720px;
 
 $line-height: 1.4em;
 
@@ -26,6 +24,7 @@ body, textarea, pre, input {
   font-family: 'freight-sans-pro', Helvetica, Arial, sans-serif;
   font-size: 2.0rem;
   line-height: $line-height;
+  background: $body-bg;
 }
 
 h1, h2, h3, h4, #text-title * {
@@ -71,6 +70,7 @@ header {
   right: 0;
   bottom: 0;
   width: $header-width;
+  background: $header-bg;
   border-left: 1px solid #ddd;
 
   .inner {
@@ -228,6 +228,10 @@ header {
       background: #ccc;
     }
   }
+}
+
+.inner {
+  width: $width;
 }
 
 #home-link {

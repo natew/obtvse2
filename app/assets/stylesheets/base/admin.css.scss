@@ -1,5 +1,4 @@
 @import "compass/css3";
-@import "theme";
 
 $admin-pad: 20px;
 $admin-bg: #f2f2f2;
@@ -7,6 +6,7 @@ $admin-editing-bg: #fff;
 $admin-bar-bg: $admin-editing-bg;
 $admin-bar-border-color: #ddd;
 $admin-bar-border: darken($admin-bar-bg,6%);
+$theme: #d23e2f;
 
 $bar-height: 70px;
 $bar-button-width: 70px;

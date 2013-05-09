@@ -27,7 +27,7 @@ $.subscribe('edit:enter', function(id) {
   el = fn.getjQueryElements(editElements);
   makeExpandingAreas();
   setPostState();
-  setDraft(state.post.draft);
+  setDraft(state.post ? state.post.draft : true);
   updatePostState();
   setLineHeight();
   setEditorHeight();
@@ -35,6 +35,7 @@ $.subscribe('edit:enter', function(id) {
   if (window.location.hash == '#preview')
     showPreview();
 
+  console.log('edit enter');
   setTimeout(function() {
     el.title.focus().putCursorAtEnd();
   }, 0);
@@ -66,12 +67,6 @@ function doEditBindings() {
   // Post.input - preview updating
   $('#post_content,#post_title').on('input',function postInput() {
     if (state.preview) updatePreview();
-  });
-
-  // DOMSubtreeModified detects when the text pre changes size,
-  // so we can adjust the height of the other text areas
-  $('#text-title pre').on('DOMSubtreeModified', function textTitleModified() {
-    fn.log(setColumnHeights());
   });
 
   // Preview button
@@ -155,7 +150,7 @@ function updatePostState() {
 
 // Saves the post
 function savePost(callback) {
-  if (state.saving || !state.changed)
+  if (state.saving || (state.post && !state.changed))
     return false;
 
   state.saving = true;

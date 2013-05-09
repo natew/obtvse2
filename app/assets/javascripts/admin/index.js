@@ -78,9 +78,8 @@ function setupFiltering() {
 }
 
 function goToNewPost() {
-  el.title.attr('disabled', 'disabled')
-  var newpost = $('#new-post');
-  newpost.attr('href', newpost.attr('href') + '?title=' + el.title.val())[0].click();
+  el.title.attr('disabled', 'disabled');
+  $('#new-post').attr('href', '?title=' + el.title.val())[0].click();
 }
 
 function showOnly(context, indices) {

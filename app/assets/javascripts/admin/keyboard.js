@@ -7,7 +7,6 @@ var key = {
 // Bindings
 $(window)
   .keydown(function windowKeydown(e) {
-    fn.log(e.which);
 
     // Not editing
     if (!state.editing) { //!$.inArray(state.lastKey,disableKeys)
