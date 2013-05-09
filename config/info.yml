@@ -4,7 +4,7 @@ name:    <%= env :name,    'Full Name' %>
 twitter: <%= env :twitter, 'handle' %>
 github:  <%= env :github,  'username'  %>
 email:   <%= env :email,   'email@example.com'  %>
-about:   <%= env :about,   'Tagline.' %>
+about:   <%= env :about,   'Example Tagline That is Longer.' %>
 
 # Google Analytics
 ga_id:   <%= env :ga,      ''  %>

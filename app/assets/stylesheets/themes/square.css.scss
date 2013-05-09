@@ -73,7 +73,7 @@ h3 {
 */
 
 header {
-  text-align: center;
+  text-align: right;
   position: fixed;
   top: 0;
   right: 0;
@@ -97,20 +97,22 @@ header {
       content: "";
       display: block;
       position: absolute;
-      bottom: -80px;
-      left: -20px;
-      width: 320px;
-      height: 320px;
+      bottom: -70px;
+      right: -70px;
+      width: 220px;
+      height: 220px;
       z-index: -1;
       background: $header-bg;
-      @include transform(rotate(-58deg));
+      @include transform(rotate(-30deg));
     }
   }
 
   h1 {
-    margin: 0 0 16px 0;
-    position: relative;
-    font-size: 2.6rem;
+    position: fixed;
+    top: $content-pad + 10;
+    right: $content-pad;
+    margin: 0;
+    font-size: 2.8rem;
     font-weight: bold;
 
     a {
@@ -123,15 +125,22 @@ header {
         top: -40px;
         font-family: FontAwesome;
       }
+
+      &:hover {
+        color: $theme;
+      }
     }
   }
 
   p {
-    color: rgba(0,0,0,0.4);
+    position: fixed;
+    top: $content-pad + 80;
+    right: $content-pad;
+    width: $header-width - $content-pad * 2;
+    color: #999;
     margin: 6px 0 0;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     line-height: 1.4em;
-    color: $header-text;
 
     a {
       border-bottom: 1px dotted $header-color;
@@ -143,11 +152,11 @@ header {
   }
 
   .twitter {
-    margin: 20px 0 0;
+    margin: 0.6em 0 0;
   }
 
   #connect {
-    margin: 12px 0 0;
+    margin: 0;
     padding: 0;
     list-style: none;
     font-size: 2.0rem;
@@ -262,9 +271,9 @@ header {
   white-space: nowrap;
   color: $header-bg;
   position: absolute;
-  top: $content-pad;
+  top: 50%;
   left: 50%;
-  margin-left: -12px;
+  margin: -30px 0 0 -16px;
   line-height: 2em;
   display: none;
 
@@ -285,12 +294,17 @@ header {
   article {
     margin: 0 0 8rem 0;
 
+    &.collapsed {
+      margin: 0 0 1.2em 0;
+    }
+
     p:first-child {
       font-size: 2.6rem;
       line-height: $line-height;
     }
 
     time {
+      margin: -.2em 0 0;
       font-size: 1.8rem;
     }
   }
@@ -310,7 +324,7 @@ nav.pagination {
     width: 180px;
 
     h1 {
-      font-size: 2.0rem;
+      font-size: 2.4rem;
     }
   }
 
@@ -327,8 +341,7 @@ nav.pagination {
 }
 
 /* iPhone [portrait + landscape] */
-@media only screen and (max-width: 768px),
-only screen and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (max-width: 768px) {
   header {
     position: relative;
     top: auto;
@@ -340,14 +353,27 @@ only screen and (-webkit-min-device-pixel-ratio: 2) {
 
     h1 {
       font-size: 3.6rem;
+      position: absolute;
+      top: $content-pad;
+      left: $content-pad;
+      text-align: left;
     }
 
     p {
       font-size: 2.0rem;
+      position: absolute;
+      top: $content-pad + 40;
+      left: $content-pad;
     }
 
     #header-content {
-      padding: 20px 0 0;
+      padding: 20px 0;
+      text-align: right;
+
+      &:before {
+        bottom: auto;
+        top: 0;
+      }
     }
 
     .inner, #header-content {
