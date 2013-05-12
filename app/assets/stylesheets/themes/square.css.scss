@@ -11,7 +11,7 @@ $content-pad: 60px;
 $header-name: #333;
 $header-text: #fff;
 $header-link: $theme;
-$header-home: $theme;
+$header-home: #ccc;
 $header-icon: #fff;
 
 html {
@@ -81,37 +81,25 @@ header {
   z-index: 0;
   width: $header-width;
 
-  .inner {
-    width: auto;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-
   #header-content {
-    padding: 20px;
-    position: relative;
+    padding: $content-pad 30px;
 
     &:before {
       content: "";
       display: block;
       position: absolute;
-      bottom: -70px;
-      right: -70px;
+      bottom: -30px;
+      right: -140px;
       width: 220px;
       height: 220px;
       z-index: -1;
       background: $header-bg;
-      @include transform(rotate(-30deg));
+      @include transform(rotate(-55deg));
     }
   }
 
   h1 {
-    position: fixed;
-    top: $content-pad;
-    right: 30px;
-    margin: 0;
+    margin: 0 0 .6em;
     font-size: 2.8rem;
     font-weight: bold;
 
@@ -133,10 +121,6 @@ header {
   }
 
   p {
-    position: fixed;
-    top: $content-pad + 80;
-    right: 30px;
-    width: $header-width - $content-pad * 2;
     color: #999;
     margin: 6px 0 0;
     font-size: 1.8rem;
@@ -152,18 +136,22 @@ header {
   }
 
   .twitter {
-    margin: 0.6em 0 0;
+    margin: 0 0 .6em;
   }
 
   #connect {
+    width: 60px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
     margin: 0;
     padding: 0;
     list-style: none;
     font-size: 2.0rem;
 
     li {
-      margin: 0;
-      display: inline;
+      margin: 6px 0 0;
+      display: block;
 
       #connect-email {
         display: none;
@@ -241,20 +229,19 @@ header {
   }
 
   .signature {
+    padding: 1em 0 0;
     border-top: none;
-    padding-top: 0;
-    margin: 4em 0;
     color: rgba(0,0,0,0.6);
     font-size: 1.8rem;
 
     &:before {
       content: "";
       display: block;
-      margin: 0 auto 4em;
-      width: 6px;
-      height: 6px;
-      border-radius: 10px;
+      margin: 0 auto 3em;
+      width: 8px;
+      height: 8px;
       background: #ccc;
+      @include transform(rotate(45deg));
     }
   }
 }
@@ -269,16 +256,16 @@ header {
   height: 36px;
   overflow: hidden;
   white-space: nowrap;
-  color: $header-bg;
+  color: $header-home;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -30px 0 0 -16px;
+  margin: -30px 0 0 -12px;
   line-height: 2em;
   display: none;
 
   &:before {
-    font-size: 32px;
+    font-size: 30px;
   }
 
   &:hover {
@@ -292,7 +279,7 @@ header {
 
 #content {
   article {
-    margin: 0 0 8rem 0;
+    margin: 0 0 2rem 0;
 
     &.collapsed {
       margin: 0 0 1.2em 0;

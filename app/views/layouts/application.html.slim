@@ -24,23 +24,22 @@ html lang="en-US"
       - unless @no_header
         header.clearfix
           = link_to 'Home', root_path, class: 'icon-home', id: 'home-link'
-          .inner
-            #header-content
-              h1= link_to INFO['name'], root_path
-              ul#connect.clearfix
-                - if INFO['twitter']
-                  li= link_to "@#{INFO['twitter']}", "http://twitter.com/#{INFO['twitter']}", class: 'icon-twitter', id: 'connect-twitter'
-                - if INFO['github']
-                  li= link_to 'github', "https://github.com/#{INFO['github']}", class: 'icon-github', id: 'connect-github'
-                - if INFO['email']
-                  li.right= link_to 'email', "mailto:#{INFO['email']}", class: 'icon-envelope', id: 'connect-email'
-                li.right= link_to 'rss', rss_path, class: 'open-external icon-rss', id: 'connect-rss'
-              p= INFO['about'].html_safe
-              .twitter
-                a href="https://twitter.com/#{INFO['twitter']}" class="twitter-follow-button" data-show-count="false" data-dnt="true" Follow @#{INFO['twitter']}
-                javascript:
-                  $('#twitter-wjs').remove();
-                  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+          #header-content
+            h1= link_to INFO['name'], root_path
+            .twitter
+              a href="https://twitter.com/#{INFO['twitter']}" class="twitter-follow-button" data-show-count="false" data-dnt="true" Follow @#{INFO['twitter']}
+              javascript:
+                $('#twitter-wjs').remove();
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+            ul#connect.clearfix
+              - if INFO['twitter']
+                li= link_to "@#{INFO['twitter']}", "http://twitter.com/#{INFO['twitter']}", class: 'icon-twitter', id: 'connect-twitter'
+              - if INFO['github']
+                li= link_to 'github', "https://github.com/#{INFO['github']}", class: 'icon-github', id: 'connect-github'
+              - if INFO['email']
+                li.right= link_to 'email', "mailto:#{INFO['email']}", class: 'icon-envelope', id: 'connect-email'
+              li.right= link_to 'rss', rss_path, class: 'open-external icon-rss', id: 'connect-rss'
+            p= INFO['about'].html_safe
       - if notice
         #dialog.notice.inner= notice
       - if alert
