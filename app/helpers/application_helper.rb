@@ -21,7 +21,7 @@ module ApplicationHelper
   def youtube_embed(str)
     output = str.lines.map do |line|
       match = nil
-      match = line.match(/^http.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/)
+      match = line.match(/^http.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*$/)
 
       if match
         render partial: 'youtube.html', locals: { video: match[1] }

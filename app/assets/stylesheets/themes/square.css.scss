@@ -36,7 +36,7 @@ body:before {
   pointer-events: none;
 }
 
-h1, h2, h3, h4, #text-title * {
+h1, h2, h3, h4, #text-title *, nav.pagination a {
   font-family: 'adelle', Helvetica, Arial, sans-serif;
   line-height: 1.2em;
   margin: 1em 0;
@@ -82,7 +82,8 @@ header {
   width: $header-width;
 
   #header-content {
-    padding: $content-pad 30px;
+    padding: $content-pad - 4 30px;
+    padding-left: 0;
 
     &:before {
       content: "";
@@ -100,7 +101,7 @@ header {
 
   h1 {
     margin: 0 0 .6em;
-    font-size: 2.8rem;
+    font-size: 2.6rem;
     font-weight: bold;
 
     a {
@@ -282,7 +283,7 @@ header {
     margin: 0 0 2rem 0;
 
     &.collapsed {
-      margin: 0 0 1.2em 0;
+      margin: 0 0 1.5em 0;
 
       h1 {
         font-size: 2.6rem;
@@ -297,8 +298,8 @@ header {
       }
 
       time {
-        margin: -.4em 0 0;
-        font-size: 1.6rem;
+        margin: -.45em 0 0;
+        font-size: 1.8rem;
       }
     }
 
@@ -314,6 +315,8 @@ header {
 }
 
 nav.pagination {
+  border-top: 2px solid #eee;
+  padding: 1em 0;
   text-align: left;
 
   a {
@@ -322,9 +325,12 @@ nav.pagination {
 }
 
 /* Medium */
+
+$header-width-medium: 200px;
+
 @media only screen and (max-width: 1024px) {
   header {
-    width: 180px;
+    width: $header-width-medium;
 
     h1 {
       font-size: 2.4rem;
@@ -334,10 +340,10 @@ nav.pagination {
   #body {
     #content {
       width: auto;
-      max-width: 880px;
+      max-width: 860px;
 
       .inner {
-        margin-right: 180px + $content-pad;
+        margin-right: $header-width-medium + $content-pad;
       }
     }
   }
@@ -349,32 +355,14 @@ nav.pagination {
     position: relative;
     top: auto;
     left: auto;
-    margin: 0 auto 20px;
-    padding: 0 60px 20px;
     width: auto;
-    border: none;
-
-    h1 {
-      font-size: 3.6rem;
-      position: absolute;
-      top: $content-pad;
-      left: 0;
-      text-align: left;
-    }
-
-    p {
-      font-size: 2.0rem;
-      position: absolute;
-      top: $content-pad + 40;
-      left: 0;
-      right: 20px;
-      width: auto;
-      text-align: left;
-    }
-
+    padding: 0;
+    
     #header-content {
-      padding: 20px 0;
-      text-align: right;
+      text-align: left;
+      padding: 5%;
+      padding-bottom: 20px;
+      position: relative;
 
       &:before {
         bottom: auto;
@@ -382,15 +370,25 @@ nav.pagination {
       }
     }
 
-    .inner, #header-content {
-      position: relative;
-      top: auto;
-      margin: 0;
+    h1 {
+      font-size: 3.6rem;
+      margin: 0 0 .4em;
+    }
+
+    p {
+      font-size: 2.0rem;
+    }
+
+    #connect {
+      bottom: 0;
+      top: 46px;
+      right: -10px;
     }
   }
 
   #body {
     #content {
+      margin: 0;
       padding: 0;
 
       .inner {
