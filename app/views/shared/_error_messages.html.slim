@@ -1,9 +1,5 @@
-<% if error_messages.errors.any? %>
-  <div class="error-messages">
-    <ul>
-      <% for message in error_messages.errors.full_messages %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+- if error_messages.errors.any?
+  .error-messages
+    ul
+      - for message in error_messages.errors.full_messages
+        li <%= message %>
