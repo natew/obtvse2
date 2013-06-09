@@ -21,7 +21,7 @@ gem 'kaminari', '~> 0.14'
 
 # Date/URL Utilities
 gem 'chronic', '~> 0.8'
-gem 'stringex', '~> 1', github: 'rsl/stringex'
+gem 'stringex', '~> 2', github: 'rsl/stringex'
 
 platform :jruby do
   gem 'trinidad'
