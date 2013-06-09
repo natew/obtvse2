@@ -5,7 +5,7 @@ A clean and simple markdown blogging platform on Rails.
 
 **[Demo](http://obtvse2.herokuapp.com) | [Demo Admin](http://obtvse2.herokuapp.com/admin)**
 
-Username: username
+Username: username@example.com
 
 Password: password
 
@@ -13,13 +13,14 @@ Password: password
 Whats New
 =========
 
-Obtvse 2 was rewritten entirely with a focus on being more user friendly, quicker, modern, and better in every way.
+Obtvse 2 was rewritten entirely with a focus on being more user friendly, quicker, modern, and customizable.
 
 **Features**
-- New default theme
-- Easy addition of themes and color schemes via pull request
+- Two new themes
+- Easy addition of new themes and color schemes
 - Built in user system with sorcery
-- Support for Typekit
+- Support for Typekit fonts
+- Turbolinks
 
 **New Admin**
 - New interface
@@ -29,16 +30,21 @@ Obtvse 2 was rewritten entirely with a focus on being more user friendly, quicke
 - Full keyboard shortcut support
 
 **Backend features**
-- Turbolinks
 - Slim templating
 - Kramdown for markdown
 - Coderay for syntax highlighting
+- Bugfixes all over (still needs many more!)
 
 
 Migrating
 ========
 
 Obtvse 2 is compatable with obtvse's original database structure and migrations.  Migration is as easy as cloning this repo, pointing to your old database and running migrations.
+
+TODO
+====
+
+Obtvse needs post history saving so you can mark versions of a post.  This would also allow for editing live posts without them updating live.
 
 
 Installation
