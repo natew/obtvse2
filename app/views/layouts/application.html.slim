@@ -26,6 +26,7 @@ html lang="en-US"
           = link_to 'Home', root_path, class: 'icon-home', id: 'home-link'
           #header-content
             h1= link_to INFO['name'], root_path
+            p= INFO['about'].html_safe
             .twitter
               a href="https://twitter.com/#{INFO['twitter']}" class="twitter-follow-button" data-show-count="false" data-dnt="true" Follow @#{INFO['twitter']}
               javascript:
@@ -39,7 +40,6 @@ html lang="en-US"
               - if INFO['email']
                 li.right= link_to 'email', "mailto:#{INFO['email']}", class: 'icon-envelope', id: 'connect-email'
               li.right= link_to 'rss', rss_path, class: 'open-external icon-rss', id: 'connect-rss'
-            p= INFO['about'].html_safe
       - if notice
         #dialog.notice.inner= notice
       - if alert
