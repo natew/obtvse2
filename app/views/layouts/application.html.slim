@@ -9,13 +9,6 @@ html lang="en-US"
     link href="#{rss_path}" rel="alternate" title="RSS" type="application/rss+xml"
     link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900' rel='stylesheet' type='text/css'
     = javascript_include_tag 'application'
-    - if INFO['ga_id']
-      /! Google Analytics
-      javascript:
-        var _gaq=[['_setAccount',' #{INFO['ga_id']} '],['_trackPageview']];
-        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)}(document,'script'));
     = render partial: 'application/typekit'
   body class="#{controller_name} #{action_name} #{logged_in? ? '' : 'not-'}logged-in #{no_users? ? 'no-users' : ''}"
     #sheet
@@ -54,3 +47,10 @@ html lang="en-US"
           = render 'users/new_form'
         - else
           = render 'sessions/new_form'
+    / Google Analytics
+    - if INFO['ga_id']
+      javascript:
+        var _gaq=[['_setAccount',' #{INFO['ga_id']} '],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
