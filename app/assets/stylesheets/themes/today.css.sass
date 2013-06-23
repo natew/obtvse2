@@ -1,0 +1,403 @@
+@import "compass/css3"
+
+$body-bg: #FAFAFA
+
+$header-color: #999
+$header-bg: #fcf3a5
+$text-color: #151515
+
+$logo: #2b3634
+
+$theme: #bdcbd3
+$theme-light: lighten($theme, 14%)
+
+$selection-bg: $theme
+$selection-color: #fff
+
+$width: 200px
+$line-height: 1.4em
+
+$header-width: 200px
+$header-pad: 40px
+$content-pad: 60px
+
+$header-name: #333
+$header-text: #fff
+$header-link: $theme
+$header-home: #ccc
+$header-icon: #fff
+
+html
+  font-size: 62.5%
+
+
+body, textarea, input
+  font-family: 'freight-sans-pro', Helvetica, Arial, sans-serif
+  font-size: 2.0rem
+  line-height: $line-height
+
+
+#body
+  background: $body-bg
+
+
+body:before
+  position: fixed
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0
+  z-index: 5
+  content: ""
+  pointer-events: none
+
+
+h1, h2, h3, h4, #text-title *, nav.pagination a
+  font-family: 'adelle', Helvetica, Arial, sans-serif
+  line-height: 1.2em
+  margin: 1em 0
+  font-weight: normal
+
+  a:hover
+    color: $theme
+
+
+
+#text-title,
+#text-title pre,
+#text-title textarea,
+h1
+  font-size: 3.4rem
+
+
+h1.external
+  font-size: 2.6rem
+
+
+h2
+  font-size: 2.0rem
+  color: rgba(0,0,0,0.8)
+
+
+h3
+  font-size: 2.0rem
+  color: rgba(0,0,0,0.8)
+
+
+//  Place things inside #body to not affect the admin
+
+header
+  text-align: right
+  position: fixed
+  top: 0
+  bottom: 0
+  right: 0
+  bottom: 0
+  z-index: 0
+  width: $header-width
+  padding: 0 0 0 20px
+
+  #header-content
+    position: absolute
+    top: 0
+    padding: $content-pad 30px
+    padding-left: 0
+
+
+  h1
+    margin: 0
+    font-weight: bold
+    font-size: 2.0rem
+
+    a
+      color: $header-name
+      vertical-align: middle
+
+      &:before
+        content: ""
+        position: absolute
+        top: -40px
+        font-family: FontAwesome
+
+
+      &:hover
+        color: $theme
+
+
+
+
+  p
+    color: #999
+    margin: .5em 0
+    font-size: 1.8rem
+    line-height: 1.4em
+
+    a
+      border-bottom: 1px dotted $header-color
+
+
+
+  a, a:hover
+    color: $header-link
+
+
+  .twitter
+    margin: 1em 0
+
+
+  #connect
+    margin: 0
+    padding: 0
+    list-style: none
+    font-size: 2.0rem
+    width: 40px
+    float: right
+    text-align: right
+
+    li
+      margin: 6px 0 0
+      display: inline-block
+
+      #connect-email
+        display: none
+
+
+      a
+        color: #ddd
+        margin: 0 3px
+
+        &:hover
+          color: $theme
+
+
+        &[class^="icon"],
+        &[class*=" icon-"]
+          display: inline-block
+          height: 28px
+          width: 28px
+          overflow: hidden
+          line-height: 1.45em
+
+          &:before
+            font-size: 2.8rem
+
+
+
+        &.icon-github
+          line-height: 1.35em
+          margin-right: -2px
+
+          &:before
+            font-size: 3.0rem
+
+
+
+        &.icon-twitter
+          line-height: 1.4em
+
+          &:before
+            font-size: 2.6rem
+
+
+
+
+
+
+
+#body
+  footer
+    display: block
+    font-size: 1.6rem
+    color: #999
+    padding: 1em 0
+    margin: 2em $header-width - $header-pad 0 0
+    line-height: 3em
+    text-align: center
+
+    aside
+      display: block
+      font-size: .9rem
+
+
+
+  .inner
+    width: auto
+
+
+  #content
+    margin: $content-pad auto
+    padding: 0 0 0 $content-pad
+    width: 920px
+
+    .inner
+      margin-right: $header-width + $content-pad
+
+      .post
+        a
+          color: #0088cc
+        hr
+          border: 0
+          border-top: 1px solid #dedede
+          border-bottom: 1px solid #fff
+        blockquote > p
+          font-size: 18px
+
+
+
+  .signature
+    padding: 1em 0 0
+    border-top: none
+    color: rgba(0,0,0,0.6)
+    font-size: 1.8rem
+
+    &:before
+      content: ""
+      display: block
+      margin: 0 auto 3em
+      width: 8px
+      height: 8px
+      background: #ccc
+      @include transform(rotate(45deg))
+
+
+
+
+.inner
+  width: $width
+
+
+#home-link
+  display: inline-block
+  width: 32px
+  height: 36px
+  overflow: hidden
+  white-space: nowrap
+  color: $theme
+  position: absolute
+  top: 20px
+  left: 0
+  margin: 0
+  line-height: 2em
+  display: none
+
+  &:before
+    font-size: 30px
+
+
+  &:hover
+    color: $theme
+
+
+
+.posts.show #home-link
+  display: none
+
+
+#content
+  article
+    margin: 0 0 2rem 0
+
+    &.collapsed
+      margin: 0 0 1em 0
+
+      time
+        margin: -.5em 0 0
+        font-size: 1.6rem
+
+
+
+    h1
+      font-weight: bold
+      font-size: 2.4rem
+
+      a
+        color: #555
+
+        &:hover
+          color: #888
+
+
+
+
+    p:first-child
+      margin-top: 1em
+      font-size: 2.4rem
+      line-height: $line-height
+
+
+    time
+      font-size: 1.8rem
+
+
+
+
+nav.pagination
+  border-top: 2px solid #eee
+  padding: 1em 0
+  text-align: left
+
+  a
+    margin: 0 20px 0 0
+    font-weight: bold
+
+
+
+/* Medium */
+
+@media only screen and (max-width: 920px)
+  #body
+    #content
+      width: auto
+
+
+
+
+/* iPhone [portrait + landscape] */
+@media only screen and (max-width: 748px)
+  header
+    position: relative
+    top: auto
+    left: auto
+    width: auto
+    padding: 0
+    text-align: center
+
+    #header-content
+      padding: 10%
+      padding-bottom: 20px
+      position: relative
+
+      &:before
+        bottom: auto
+        top: 0
+
+
+      #connect
+        float: none
+        margin: 0 auto
+
+
+
+    h1
+      font-size: 3.0rem
+      margin: 0 0 .4em
+
+
+    p
+      font-size: 2.0rem
+
+
+
+  #body
+    #content
+      margin: 0
+      padding: 0
+
+      .inner
+        margin: 0 10%
+
+
+
+
+  #body #home-link
+    display: none
