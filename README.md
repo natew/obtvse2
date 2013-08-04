@@ -53,7 +53,7 @@ Installation
 If you are new to Rails development, check out guides for getting your development environment set up for [Mac](http://astonj.com/tech/setting-up-a-ruby-dev-enviroment-on-lion/) and [Windows](http://jelaniharris.com/2011/installing-ruby-on-rails-3-in-windows/).
 
     cd ~/Sites
-    git clone git://github.com/NateW/obtvse2.git
+    git clone git://github.com/natew/obtvse2.git
     cd obtvse2
     bundle install
     rake db:migrate
