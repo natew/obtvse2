@@ -53,7 +53,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    @post_path = post_path(@post.id)
+    @post_path = post_path(@post)
   end
 
   def create
