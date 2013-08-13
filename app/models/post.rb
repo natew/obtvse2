@@ -5,10 +5,10 @@ class Post < ActiveRecord::Base
 
   acts_as_url :title, :url_attribute => :slug
 
-  scope :unpublished, where(draft: true)
-  scope :published, where(draft: false)
-  scope :newest, order('published_at desc')
-  scope :oldest, order('published_at asc')
+  scope :unpublished, -> { where(draft: true) }
+  scope :published, -> { where(draft: false) }
+  scope :newest, -> { order('published_at desc') }
+  scope :oldest, -> { order('published_at asc') }
   scope :previous, lambda { |post| where('published_at < ?', post.published_at).newest }
   scope :next, lambda { |post| where('published_at > ?', post.published_at).newest }
 
