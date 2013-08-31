@@ -31,6 +31,7 @@ end
 platform :ruby do
   gem 'pg', '~> 0.14'
   gem 'unicorn'
+  gem 'thin'
 end
 
 group :production do
