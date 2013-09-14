@@ -125,6 +125,7 @@ GEM
     net-ssh (2.3.0)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
+    newrelic_rpm (3.6.4.122)
     nokogiri (1.5.2)
     nokogiri (1.5.2-x86-mingw32)
     oauth (0.4.7)
@@ -236,6 +237,7 @@ DEPENDENCIES
   jquery-rails (~> 2)
   kaminari (~> 0.14)
   kramdown (~> 1.0)
+  newrelic_rpm
   pg (~> 0.14)
   quiet_assets
   rack-livereload

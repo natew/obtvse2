@@ -36,6 +36,7 @@ end
 
 group :production do
   gem 'aws-sdk', '~> 1.3.4'
+  gem 'newrelic_rpm'
 end
 
 group :development, :test do
