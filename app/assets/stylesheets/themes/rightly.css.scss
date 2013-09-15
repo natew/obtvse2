@@ -41,21 +41,21 @@ h1, h2, h3, h4, #text-title * {
 #text-title,
 #text-title pre,
 #text-title textarea,
-h1 {
-  font-size: 3.4rem;
-}
 
-h1.external {
-  font-size: 2.6rem;
+h1 {
+  font-size: 3.7rem;
+  font-weight: bold;
 }
 
 h2 {
-  font-size: 2.0rem;
+  font-size: 2.5rem;
+  font-weight: bold;
   color: rgba(0,0,0,0.8);
 }
 
 h3 {
-  font-size: 2.0rem;
+  font-size: 2rem;
+  font-weight: bold;
   color: rgba(0,0,0,0.8);
 }
 
@@ -209,6 +209,7 @@ header {
     .inner {
       margin-right: $header-width + $content-pad;
     }
+    color:rgba(0,0,0,0.8); 
   }
 
   .signature {
@@ -262,7 +263,7 @@ header {
 }
 
 .posts.show #home-link {
-  display: block;
+  display: none;
 }
 
 #content {
