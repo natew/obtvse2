@@ -1,6 +1,7 @@
 //= require _fn
 //= require jquery
 //= require jquery_ujs
+//= require readingTime
 //= require turbolinks
 //= require avgrund
 //= require prettify
