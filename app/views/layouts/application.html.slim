@@ -9,7 +9,6 @@ html lang="en-US"
     link href="#{rss_path}" rel="alternate" title="RSS" type="application/rss+xml"
     link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900' rel='stylesheet' type='text/css'
     = javascript_include_tag 'application'
-    = render partial: 'application/typekit'
   body class="#{controller_name} #{action_name} #{logged_in? ? '' : 'not-'}logged-in #{no_users? ? 'no-users' : ''}"
     #sheet
     #body
