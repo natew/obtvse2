@@ -60,9 +60,4 @@ $(function() {
       $('#edit-button').attr('href', $('#edit-link').data('href'));
     }
   }
-
-  //eta
-  $('article').each(function() {
-    $(this).readingTime();
-  });
 });
