@@ -14,3 +14,6 @@
       = render partial: 'li', collection: @published
   .hide
     = link_to '', new_post_path, id: 'new-post'
+
+#bar
+    = link_to 'Settings', edit_user_path(current_user.id), id: "edit-user-button", class: 'icon-user'

@@ -5,7 +5,7 @@ html lang="en-US"
     title= html_title yield(:title)
     = csrf_meta_tag
     = stylesheet_link_tag 'application'
-    meta content=INFO['name'] name="author"
+    meta content=User.info('name') name="author"
     link href="#{rss_path}" rel="alternate" title="RSS" type="application/rss+xml"
     link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900' rel='stylesheet' type='text/css'
     = javascript_include_tag 'application'
@@ -18,20 +18,20 @@ html lang="en-US"
         header.clearfix
           = link_to 'Home', root_path, class: 'icon-home', id: 'home-link'
           #header-content
-            h1= link_to INFO['name'], root_path
-            p= INFO['about'].html_safe
+            h1= link_to User.info('name'), root_path
+            p= User.info('about').html_safe
             .twitter
-              a href="https://twitter.com/#{INFO['twitter']}" class="twitter-follow-button" data-show-count="false" data-dnt="true" Follow @#{INFO['twitter']}
+              a href="https://twitter.com/#{User.info('twitter')}" class="twitter-follow-button" data-show-count="false" data-dnt="true" Follow @#{User.info('twitter')}
               javascript:
                 $('#twitter-wjs').remove();
                 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
             ul#connect.clearfix
-              - if INFO['twitter']
-                li= link_to "@#{INFO['twitter']}", "http://twitter.com/#{INFO['twitter']}", class: 'icon-twitter', id: 'connect-twitter'
-              - if INFO['github']
-                li= link_to 'github', "https://github.com/#{INFO['github']}", class: 'icon-github', id: 'connect-github'
-              - if INFO['email']
-                li.right= link_to 'email', "mailto:#{INFO['email']}", class: 'icon-envelope', id: 'connect-email'
+              - if User.info('twitter')
+                li= link_to "@#{User.info('twitter')}", "http://twitter.com/#{User.info('twitter')}", class: 'icon-twitter', id: 'connect-twitter'
+              - if User.info('github')
+                li= link_to 'github', "https://github.com/#{User.info('github')}", class: 'icon-github', id: 'connect-github'
+              - if User.info('email')
+                li.right= link_to 'email', "mailto:#{User.info('email')}", class: 'icon-envelope', id: 'connect-email'
               li.right= link_to 'rss', rss_path, class: 'open-external icon-rss', id: 'connect-rss'
       - if notice
         #dialog.notice.inner= notice
@@ -48,7 +48,7 @@ html lang="en-US"
         - else
           = render 'sessions/new_form'
     / Google Analytics
-    - if INFO['ga_id']
+    - if User.info('ga_id')
       javascript:
         var _gaq=[['_setAccount',' #{INFO['ga_id']} '],['_trackPageview']];
         (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

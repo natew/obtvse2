@@ -1,0 +1,45 @@
+= form_for @user, html:{class: "normal-form"} do |f|
+  h3 Set up your account
+  = render partial: 'shared/error_messages', object: @user
+
+  .field
+    = f.label :email, "Email*"
+    = f.text_field :email
+
+  .field
+    = f.label :password, "Password*"
+    = f.password_field :password
+
+  .field
+    = f.label :password_confirmation, "Password Confirmation*"
+    = f.password_field :password_confirmation
+
+  hr
+
+  .field
+    = f.label :name
+    = f.text_field :name
+
+  .field
+    = f.label :blog_title
+    = f.text_field :blog_title
+
+  .field
+    = f.label :about
+    = f.text_area :about, rows:5
+
+  hr
+
+  .field
+    = f.label :twitter
+    = f.text_field :twitter, placeholder: '@handle'
+
+  .field
+    = f.label :github
+    = f.text_field :github, placeholder: 'username'
+
+  .field
+    = f.label :ga_id, "Google Analytics ga_id"
+    = f.text_field :ga_id
+
+  .actions = f.submit

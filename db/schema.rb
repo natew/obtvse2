@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121229190107) do
+ActiveRecord::Schema.define(:version => 20131004122202) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -78,6 +78,12 @@ ActiveRecord::Schema.define(:version => 20121229190107) do
     t.datetime "last_activity_at"
     t.integer  "failed_logins_count",             :default => 0
     t.datetime "lock_expires_at"
+    t.string   "name"
+    t.string   "twitter"
+    t.string   "github"
+    t.text     "about"
+    t.string   "ga_id"
+    t.string   "blog_title"
   end
 
   add_index "users", ["last_logout_at", "last_activity_at"], :name => "index_users_on_last_logout_at_and_last_activity_at"

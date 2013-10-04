@@ -65,3 +65,5 @@ Start the local server:
     bundle exec rails s
 
 Go to [0.0.0.0:3000](http://0.0.0.0:3000/), to administrate you go to [/admin](http://0.0.0.0:3000/admin)
+
+By default no users are created. To create a new user go to [/users/new](http://localhost:3000/users/new)
