@@ -51,6 +51,27 @@ h1, h2, h3, h4, #text-title *, nav.pagination a {
   }
 }
 
+#text-title,
+#text-title pre,
+#text-title textarea,
+h1 {
+  font-size: 3.4rem;
+}
+
+h1.external {
+  font-size: 2.6rem;
+}
+
+h2 {
+  font-size: 2.0rem;
+  color: rgba(0,0,0,0.8);
+}
+
+h3 {
+  font-size: 2.0rem;
+  color: rgba(0,0,0,0.8);
+}
+
 /*
   Place things inside #body to not affect the admin
 */

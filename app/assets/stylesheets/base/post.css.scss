@@ -1,18 +1,9 @@
 @import "color_scheme";
 
 #content {
-
   clear: both;
   color: rgba(0,0,0,0.7);
-  
-  i{
-    display: inline;
-    font-size: inherit;
-  }
-  [class^="icon-"]:before, [class*=" icon-"]:before{
-    display: inline;
-    font-size: inherit;
-  }
+
   article {
     padding: 0;
     margin: 0 0 1rem 0;

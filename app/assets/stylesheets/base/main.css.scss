@@ -1,24 +1,6 @@
 @import "compass/css3";
 @import "color_scheme";
 
-#text-title,
-#text-title pre,
-#text-title textarea,
-
-h1 {
-  font-size: 3.7rem;
-}
-
-h2 {
-  font-size: 2.7rem;
-  color: rgba(0,0,0,0.8);
-}
-
-h3 {
-  font-size: 2rem;
-  color: rgba(0,0,0,0.8);
-}
-
 ::selection, ::-moz-selection {
   background: $selection-bg;
   color: $selection-color;
