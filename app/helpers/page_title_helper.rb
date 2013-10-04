@@ -1,18 +1,18 @@
 module PageTitleHelper
   def html_title(content)
     if content.present?
-      [content,INFO['name']].join(' - ')
+      [content,User.info('name')].join(' - ')
     else
-      INFO['name']
+      User.info('name')
     end
   end
 
   def page_title(content)
-    @title = content || INFO['name']
+    @title = content || User.info('name')
     render partial: 'name'
   end
 
   def linked_title
-    link_to INFO['name'], root_path
+    link_to User.info('name'), root_path
   end
 end

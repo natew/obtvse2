@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :get_user
+  before_filter :create_user, :get_user
   helper_method :no_users?
 
   rescue_from ActiveRecord::RecordNotFound, :with => :render_not_found
@@ -37,5 +37,11 @@ class ApplicationController < ActionController::Base
 
   def get_user
     @user = current_user || User.new
+  end
+
+  def create_user
+    if no_users? && request[:controller] != 'users'
+      redirect_to new_user_path
+    end
   end
 end
