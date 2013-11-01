@@ -1,12 +1,12 @@
-$body-bg: #fff;
+$body-bg: #151515;
 
 $header-color: #999;
 $header-bg: #fcf3a5;
-$text-color: #151515;
+$text-color: #fff;
 
-$logo: #2b3634;
+$theme: #d9ff8a;
+$logo: $theme;
 
-$theme: #bdcbd3;
 $theme-light: lighten($theme, 14%);
 
 $selection-bg: $theme;

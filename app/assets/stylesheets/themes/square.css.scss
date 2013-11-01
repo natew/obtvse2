@@ -2,13 +2,13 @@
 @import "compass/css3";
 
 $width: 200px;
-$line-height: 1.4em;
+$line-height: 1.5em;
 
 $header-width: 200px;
 $header-pad: 40px;
 $content-pad: 60px;
 
-$header-name: #333;
+$header-name: $theme;
 $header-text: #fff;
 $header-link: $theme;
 $header-home: #ccc;
@@ -19,32 +19,19 @@ html {
 }
 
 body, textarea, input {
-  font-family: 'freight-sans-pro', Helvetica, Arial, sans-serif;
-  font-size: 2.0rem;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-size: 1.8rem;
   line-height: $line-height;
 }
 
 #body {
-  background: none;
-}
-
-body:before {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 5;
-  content: "";
-  border: 3px solid rgba($header-bg, 0.8);
-  pointer-events: none;
+  background: #151515;
 }
 
 h1, h2, h3, h4, #text-title *, nav.pagination a {
-  font-family: 'adelle', Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
   line-height: 1.2em;
-  margin: 1em 0;
-  font-weight: normal;
+  margin: 4rem 0 2rem 0;
 
   a:hover {
     color: $theme;
@@ -63,13 +50,12 @@ h1.external {
 }
 
 h2 {
-  font-size: 2.0rem;
-  color: rgba(0,0,0,0.8);
+  font-size: 1.6rem;
+  text-transform: uppercase;
 }
 
 h3 {
   font-size: 2.0rem;
-  color: rgba(0,0,0,0.8);
 }
 
 /*
@@ -121,10 +107,6 @@ header {
     margin: .5em 0;
     font-size: 1.8rem;
     line-height: 1.4em;
-
-    a {
-      border-bottom: 1px dotted $header-color;
-    }
   }
 
   a, a:hover {
@@ -227,7 +209,6 @@ header {
   .signature {
     padding: 1em 0 0;
     border-top: none;
-    color: rgba(0,0,0,0.6);
     font-size: 1.8rem;
 
     &:before {
@@ -282,7 +263,7 @@ header {
 
       time {
         margin: -.5em 0 0;
-        font-size: 1.6rem;
+        font-size: 1.4rem;
       }
     }
 
@@ -291,7 +272,7 @@ header {
       font-size: 2.4rem;
 
       a {
-        color: #555;
+        color: #fff;
 
         &:hover {
           color: #888;
@@ -305,19 +286,23 @@ header {
     }
 
     time {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
     }
   }
 }
 
 nav.pagination {
-  border-top: 2px solid #eee;
   padding: 1em 0;
   text-align: left;
 
   a {
+    font-size: 1.2rem;
     margin: 0 20px 0 0;
-    font-weight: bold;
+    color: #fff;
+
+    &:hover {
+      color: #888;
+    }
   }
 }
 
@@ -340,7 +325,7 @@ nav.pagination {
     width: auto;
     padding: 0;
     text-align: center;
-    
+
     #header-content {
       padding: 10%;
       padding-bottom: 20px;
@@ -381,4 +366,9 @@ nav.pagination {
   #body #home-link {
     display: none;
   }
+}
+
+code, .CodeRay {
+  background: #000;
+  padding: 20px;
 }

@@ -2,7 +2,7 @@
 
 #content {
   clear: both;
-  color: rgba(0,0,0,0.7);
+  color: #eee;
 
   article {
     padding: 0;
@@ -17,7 +17,7 @@
   time {
     margin: 0;
     padding: 0;
-    color: rgba(0,0,0,0.4);
+    color: #777;
     display: block;
   }
 
@@ -58,33 +58,6 @@
     padding: 0;
   }
 
-  code, .CodeRay {
-    padding: 0;
-    display: block;
-    white-space: pre;
-    margin: 1em 0;
-    font-size: 14px;
-    line-height: 24px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-
-    .line-numbers {
-      a {
-        color: #999;
-      }
-
-      pre {
-        width: 35px;
-      }
-    }
-
-    pre {
-      white-space: pre;
-      margin: 0;
-      font-family: 'Pragmata Pro', 'Droid Sans Mono', Monaco, Consolas, 'Ubuntu Mono', monospace !important;
-    }
-  }
-
   nav.history {
     margin: 4em 0 0;
     padding: 0 0 4em 0;
@@ -116,6 +89,33 @@
         content: "« ";
       }
     }
+  }
+}
+
+code, .CodeRay {
+  padding: 0;
+  display: block;
+  white-space: pre;
+  margin: 1em 0;
+  font-size: 14px;
+  line-height: 24px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+  .line-numbers {
+    a {
+      color: #999;
+    }
+
+    pre {
+      width: 35px;
+    }
+  }
+
+  pre {
+    white-space: pre;
+    margin: 0;
+    font-family: 'Pragmata Pro', 'Droid Sans Mono', Monaco, Consolas, 'Ubuntu Mono', monospace !important;
   }
 }
 

@@ -15,19 +15,6 @@ body {
   word-wrap: break-word;
 }
 
-/* Typekit hiding sheet */
-#sheet {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #fff;
-  z-index: 100000;
-  opacity: 1;
-  @include transition(all ease-in .2s);
-}
-
 .wf-active,
 .wf-inactive {
   #sheet {
