@@ -53,11 +53,11 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    @post_path = post_path(@post.id)
+    @post_path = post_path(@post)
   end
 
   def create
-    @post = Post.new(params[:post])
+    @post = Post.new(params.require(:post).permit!)
 
     respond_to do |format|
       if @post.save
@@ -73,11 +73,11 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post = params[:id].to_i.to_s == params[:id] ? Post.find(params[:id]) : Post.find_by_slug(params[:id])
     logger.info @post
 
     respond_to do |format|
-      if @post.update_attributes(params[:post])
+      if @post.update_attributes(params.require(:post).permit!)
         format.html { redirect_to "/edit/#{@post.id}", notice: "Post updated successfully" }
         format.xml { head :ok }
         format.text { render text: @post.to_json }
