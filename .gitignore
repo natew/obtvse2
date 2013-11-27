@@ -9,7 +9,7 @@
 /vendor/ruby
 /vendor/cache
 /vendor/bundle/*
-/bin/
+#/bin/
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
