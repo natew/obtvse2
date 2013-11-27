@@ -65,3 +65,5 @@ Start the local server:
     bundle exec rails s
 
 Go to [0.0.0.0:3000](http://0.0.0.0:3000/), to administrate you go to [/admin](http://0.0.0.0:3000/admin)
+
+Installing on Heroku?  Be sure to run `heroku config:set PATH=bin:vendor/bundle/ruby/2.0.0/bin:/usr/local/bin:/usr/bin:/bin` after you've deployed.
