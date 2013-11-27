@@ -66,4 +66,6 @@ Start the local server:
 
 Go to [0.0.0.0:3000](http://0.0.0.0:3000/), to administrate you go to [/admin](http://0.0.0.0:3000/admin)
 
-Installing on Heroku?  Be sure to run `heroku config:set PATH=bin:vendor/bundle/ruby/2.0.0/bin:/usr/local/bin:/usr/bin:/bin` after you've deployed.
+Installing on Heroku?  You may need to run the following after you've updated to the latest Rails 4 version.
+
+    heroku config:set PATH=bin:vendor/bundle/ruby/2.0.0/bin:/usr/local/bin:/usr/bin:/bin
