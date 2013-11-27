@@ -4,6 +4,9 @@ ruby '2.0.0'
 gem 'rails', '~> 4.0'
 gem 'activerecord-session_store'
 
+# Server heroku assets in production
+gem 'rails_12factor', group: :production
+
 # Auth/users
 gem 'sorcery'
 gem 'bcrypt-ruby', '~> 3.0.0'
