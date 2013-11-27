@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0'
 
 gem 'rails', '~> 4.0'
 gem 'activerecord-session_store'
