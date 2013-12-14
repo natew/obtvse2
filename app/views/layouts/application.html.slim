@@ -2,7 +2,7 @@ doctype html
 /! Font thanks to Font Awesome - http://fortawesome.github.com/Font-Awesome
 html lang="en-US"
   head
-    title= html_title yield(:title)
+    title= html_title yield(:title).html_safe
     = csrf_meta_tag
     = stylesheet_link_tag 'application'
     meta content=INFO['name'] name="author"
