@@ -15,7 +15,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'slim', '~> 1.2'
 gem 'turbolinks', '~> 1.0'
 gem 'jquery-rails', '~> 2'
-gem 'compass-rails', '~> 2.0.alpha.0'
+gem 'compass-rails', '~> 1.1'
 
 # Markdown
 gem 'kramdown', '~> 1.0', require: false
