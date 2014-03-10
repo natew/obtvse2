@@ -38,7 +38,11 @@ class PostsController < ApplicationController
       @published = Post.where(draft:false).order('published_at desc')
       @drafts = Post.where(draft:true).order('updated_at desc')
     else
-      render 'sessions/new'
+      if no_users?
+        render 'users/create'
+      else
+        render 'sessions/new'
+      end
     end
   end
 
