@@ -1,5 +1,7 @@
 <% def env(a, b); e = ENV["obtvse_#{a}"]; e ? e : b; end %>
 
+title: <%= env :title,     'Blog Title' %>
+domain: <%= env :domain,   'http://www.example.com' %>
 name:    <%= env :name,    'Full Name' %>
 twitter: <%= env :twitter, 'handle' %>
 github:  <%= env :github,  'username'  %>
