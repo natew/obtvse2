@@ -1,4 +1,4 @@
-Obtvse::Application.routes.draw do
+Obtvse::Engine.routes.draw do
 
   # Admin
   get '/admin' => 'posts#admin', as: 'admin'
@@ -9,7 +9,7 @@ Obtvse::Application.routes.draw do
 
   resources :users
   resources :sessions
-  resources :posts, path: '/'
+  resources :posts, path: '/', param: :slug
 
   get '/:slug' => 'posts#show', as: 'post_slug'
 

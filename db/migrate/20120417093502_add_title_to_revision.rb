@@ -1,7 +1,7 @@
 class AddTitleToRevision < ActiveRecord::Migration
   def change
-    add_column :revisions, :title, :string
-    remove_column :posts, :version
-    remove_column :posts, :position
+    add_column :obtvse_revisions, :title, :string
+    remove_column :obtvse_posts, :version
+    remove_column :obtvse_posts, :position
   end
 end

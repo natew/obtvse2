@@ -1,6 +1,16 @@
+# Configure Rails Environment
 ENV["RAILS_ENV"] = "test"
-require File.expand_path('../../config/environment', __FILE__)
-require 'rails/test_help'
+
+require File.expand_path("../dummy/config/environment.rb",  __FILE__)
+require "rails/test_help"
+
+Rails.backtrace_cleaner.remove_silencers!
+
+# Load support files
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
+
+# Load fixtures from the engine
+ActiveSupport::TestCase.fixture_path = File.expand_path("../fixtures", __FILE__)
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
@@ -9,5 +19,10 @@ class ActiveSupport::TestCase
   # -- they do not yet inherit this setting
   fixtures :all
 
+  setup do
+    @routes = Obtvse::Engine.routes
+  end
   # Add more helper methods to be used by all tests here...
 end
+
+ActiveRecord::Migrator.migrate File.expand_path("../db/migrate/", __FILE__)

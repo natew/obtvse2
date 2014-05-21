@@ -1,0 +1,25 @@
+doctype html
+html lang="en-US"
+  head
+    title= html_title yield(:title)
+    = csrf_meta_tag
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'admin'
+    = render partial: 'obtvse/application/typekit'
+    link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900' rel='stylesheet' type='text/css'
+  body class="admin #{action_name}"
+    = render partial: 'obtvse/shared/edit_button', locals: { icon: 'reorder' }
+    #sheet
+    #admin
+      = yield
+    #modal.modal
+      .modal-header
+        a.close data-dismiss="modal"
+        h3#modal-title
+      .modal-body
+        p#modal-content
+      .modal-footer
+        a#btn-primary.btn href="#"
+        a#btn-seconday.btn.btn-primary href="#"
+    #null
+    #line-height Lorem
