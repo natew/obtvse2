@@ -1,0 +1,130 @@
+@import "compass/css3";
+@import "obtvse/color_scheme";
+
+::selection, ::-moz-selection {
+  background: $selection-bg;
+  color: $selection-color;
+}
+
+* { @include box-sizing(border-box); }
+
+body {
+  background: $body-bg;
+  color: $text-color;
+  -webkit-font-smoothing: antialiased;
+  word-wrap: break-word;
+}
+
+.wf-active,
+.wf-inactive {
+  #sheet {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+#body {
+  background: $body-bg;
+  position: relative;
+  overflow: hidden;
+}
+
+.inner {
+  width: 620px;
+  position: relative;
+  margin: 0 auto;
+}
+
+
+/*    BASE ELEMENTS    */
+
+p, ol, ul, .youtube_video {
+  margin: .5em 0 1em;
+}
+
+li {
+  margin: .5em 0;
+}
+
+a,
+a:visited
+a:active {
+  color: $theme;
+  text-decoration: none;
+  @include transition(all .1s linear);
+}
+
+a:hover,
+#admin #published h3 a:hover {
+  color: $theme-light;
+}
+
+
+/*    BODY ELEMENTS    */
+
+aside {
+  position: relative;
+  display: block;
+}
+
+#dialog {
+  margin-top: -2em;
+  margin-bottom: 2em;
+  padding: 5px;
+
+  &.notice {
+    color: #887a26;
+    background: rgba(#887a26, 0.1);
+  }
+
+  &.alert {
+    color: #ec2420;
+    background: rgba(#ec2420, 0.1);
+  }
+}
+
+#edit-button {
+  display: block;
+  overflow: hidden;
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  z-index: 100;
+  color: #ddd;
+  @include transition(all .3s ease-in);
+
+  &:hover {
+    color: $theme;
+  }
+}
+
+.not-logged-in {
+  #edit-button {
+    display: none;
+  }
+}
+
+nav.pagination {
+  text-align: center;
+  margin: 60px 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+nav.pagination a {
+  margin: 0 15px;
+}
+
+/* nonsense */
+
+.clearfix:before, .clearfix:after {
+  content:'';
+  display:table;
+}
+
+.hide {
+  visibility: hidden;
+  height: 1px;
+  clip:rect(0 0 0 0);
+  position: absolute;
+}

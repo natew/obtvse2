@@ -1,5 +1,5 @@
 class AddUrlToPosts < ActiveRecord::Migration
   def change
-    add_column :posts, :url, :string
+    add_column :obtvse_posts, :url, :string
   end
 end

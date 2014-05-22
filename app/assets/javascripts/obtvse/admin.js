@@ -1,0 +1,11 @@
+//= require jquery
+//= require jquery_ujs
+//= require obtvse/jquery.putcursoratend
+//= require obtvse/jquery.cookie
+//= require obtvse/jquery.pubsub
+//= require obtvse/fitvids
+//= require obtvse/showdown
+//= require obtvse/underscore
+//= require obtvse/_fn
+//= require turbolinks
+//= require_tree ./admin

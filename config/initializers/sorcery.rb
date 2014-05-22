@@ -7,7 +7,7 @@ Rails.application.config.sorcery.configure do |config|
   config.user_config do |user|
     user.username_attribute_names                     = [:email]
 
-    user.reset_password_mailer                        = UserMailer
+    user.reset_password_mailer                        = Obtvse::UserMailer
     user.reset_password_expiration_period             = 10.minutes
     user.reset_password_time_between_emails           = nil
 
@@ -15,5 +15,5 @@ Rails.application.config.sorcery.configure do |config|
     user.login_lock_time_period                       = 2.minutes
   end
 
-  config.user_class = User
+  config.user_class = Obtvse::User
 end

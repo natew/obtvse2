@@ -19,11 +19,7 @@
 /tmp
 
 .DS_Store
-
-# Ignore config
-/config/deploy.rb
-/config/database.yml
-
-# Stupid configs for livereload
-/app/assets/*/config.rb
-/app/assets/*/*/config.rb
+/test/dummy/db/test.sqlite3
+/test/dummy/db/development.sqlite3
+/test/dummy/tmp
+/test/dummy/log
