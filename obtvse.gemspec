@@ -25,9 +25,9 @@ Gem::Specification.new do |s|
 
   # Frontend Utilities
   s.add_dependency 'slim', '~> 1.2'
-  s.add_dependency 'turbolinks', '~> 1.0'
-  s.add_dependency 'jquery-rails', '~> 2'
-  s.add_dependency 'compass-rails', '~> 1.1'
+  s.add_dependency 'turbolinks', '>= 1.0'
+  s.add_dependency 'jquery-rails', '>= 2'
+  s.add_dependency 'compass-rails', '>= 1.1'
 
   # Markdown
   s.add_dependency 'kramdown', '~> 1.0'
