@@ -43,9 +43,9 @@ html lang="en-US"
     - unless logged_in?
       aside#modal-login.avgrund-popup
         - if no_users?
-          = render 'users/new_form'
+          = render 'obtvse/users/new_form'
         - else
-          = render 'sessions/new_form'
+          = render 'obtvse/sessions/new_form'
     / Google Analytics
     - if INFO['ga_id']
       javascript:
