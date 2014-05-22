@@ -29,7 +29,7 @@ module Obtvse
     end
 
     initializer :add_assets do |app|
-      app.config.assets.precompile += %w{ obtvse/admin.js }
+      app.config.assets.precompile += %w{ obtvse/admin.js obtvse/application.css obtvse/application.js }
     end
   end
 end

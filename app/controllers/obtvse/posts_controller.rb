@@ -1,7 +1,8 @@
 module Obtvse
   class PostsController < ApplicationController
     before_filter :require_login, except: [:index, :show, :admin]
-    layout 'obtvse/layouts/obtvse_admin', except: [:index, :show]
+
+    layout :get_layout
 
     def index
       @posts = Post.published.newest.page(params[:page]).per(8)
@@ -109,6 +110,14 @@ module Obtvse
 
     def admin?
       session[:admin] == true
+    end
+
+    def get_layout
+      if %w[index show].include? action_name
+        'obtvse/layouts/application'
+      else
+        'obtvse/layouts/obtvse_admin'
+      end
     end
   end
 end

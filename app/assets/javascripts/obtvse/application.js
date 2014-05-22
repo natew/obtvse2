@@ -1,9 +1,9 @@
-//= require _fn
+//= require obtvse/_fn
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require avgrund
-//= require prettify
-//= require prettify/lang-css
-//= require prettify/lang-sql
+//= require obtvse/avgrund
+//= require obtvse/prettify
+//= require obtvse/prettify/lang-css
+//= require obtvse/prettify/lang-sql
 //= require obtvse/main
