@@ -18,4 +18,4 @@ article id="post-#{post.id}" class="#{collapsed ? 'collapsed' : 'full'}"
     .post
       - if post.content
         = markdown(post.content)
-  #edit-link.hide data-href="#{edit_post_path post.id}"
+  #edit-link.hide data-href="#{edit_post_path post}"
