@@ -6,4 +6,4 @@
 //= require prettify
 //= require prettify/lang-css
 //= require prettify/lang-sql
-//= require main
+//= require obtvse/main

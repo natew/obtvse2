@@ -4,11 +4,11 @@ html lang="en-US"
   head
     title= html_title yield(:title).html_safe
     = csrf_meta_tag
-    = stylesheet_link_tag 'application'
+    = stylesheet_link_tag 'otbvse/application'
     meta content=INFO['name'] name="author"
     link href="#{rss_path}" rel="alternate" title="RSS" type="application/rss+xml"
     link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900' rel='stylesheet' type='text/css'
-    = javascript_include_tag 'application'
+    = javascript_include_tag 'otbvse/application'
   body class="#{controller_name} #{action_name} #{logged_in? ? '' : 'not-'}logged-in #{no_users? ? 'no-users' : ''}"
     #sheet
     #body
