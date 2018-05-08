@@ -30,4 +30,7 @@ Obtvse::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  # Run randomly: better for finding weird test dependencies
+  config.active_support.test_order = :random
 end

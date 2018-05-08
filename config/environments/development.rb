@@ -1,8 +1,8 @@
 Obtvse::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
-  # Automatically inject JavaScript needed for LiveReload
-  config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
+  # Because sometimes you want to run a virtual host
+  BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

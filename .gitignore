@@ -23,7 +23,3 @@
 # Ignore config
 /config/deploy.rb
 /config/database.yml
-
-# Stupid configs for livereload
-/app/assets/*/config.rb
-/app/assets/*/*/config.rb
