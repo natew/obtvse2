@@ -34,88 +34,18 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: authentications; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.authentications (
-    id integer NOT NULL,
-    user_id integer NOT NULL,
-    provider character varying NOT NULL,
-    uid character varying NOT NULL,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
-);
-
-
---
--- Name: authentications_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.authentications_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: authentications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.authentications_id_seq OWNED BY public.authentications.id;
-
-
---
--- Name: images; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.images (
-    id integer NOT NULL,
-    image_file_name character varying,
-    image_file_size character varying,
-    image_content_type character varying,
-    image_updated_at timestamp without time zone
-);
-
-
---
--- Name: images_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.images_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: images_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.images_id_seq OWNED BY public.images.id;
-
-
---
 -- Name: posts; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.posts (
     id integer NOT NULL,
-    title character varying,
-    slug character varying,
+    title character varying NOT NULL,
+    slug character varying NOT NULL,
     content text,
     draft boolean DEFAULT true,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    aside boolean DEFAULT false,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
     url character varying,
-    parent integer,
-    timespent integer,
     published_at timestamp without time zone
 );
 
@@ -146,12 +76,11 @@ ALTER SEQUENCE public.posts_id_seq OWNED BY public.posts.id;
 
 CREATE TABLE public.revisions (
     id integer NOT NULL,
-    version integer,
-    content text,
-    post_id integer,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    title character varying
+    content text NOT NULL,
+    post_id integer NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    title character varying NOT NULL
 );
 
 
@@ -192,8 +121,8 @@ CREATE TABLE public.sessions (
     id integer NOT NULL,
     session_id character varying NOT NULL,
     data text,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
 );
 
 
@@ -227,8 +156,8 @@ CREATE TABLE public.users (
     email character varying,
     crypted_password character varying,
     salt character varying,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
     remember_me_token character varying,
     remember_me_token_expires_at timestamp without time zone,
     reset_password_token character varying,
@@ -264,20 +193,6 @@ ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- Name: authentications id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.authentications ALTER COLUMN id SET DEFAULT nextval('public.authentications_id_seq'::regclass);
-
-
---
--- Name: images id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.images ALTER COLUMN id SET DEFAULT nextval('public.images_id_seq'::regclass);
-
-
---
 -- Name: posts id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -303,22 +218,6 @@ ALTER TABLE ONLY public.sessions ALTER COLUMN id SET DEFAULT nextval('public.ses
 --
 
 ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
-
-
---
--- Name: authentications authentications_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.authentications
-    ADD CONSTRAINT authentications_pkey PRIMARY KEY (id);
-
-
---
--- Name: images images_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.images
-    ADD CONSTRAINT images_pkey PRIMARY KEY (id);
 
 
 --
@@ -396,6 +295,14 @@ CREATE UNIQUE INDEX unique_schema_migrations ON public.schema_migrations USING b
 
 
 --
+-- Name: revisions fk_rails_eedd777d36; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.revisions
+    ADD CONSTRAINT fk_rails_eedd777d36 FOREIGN KEY (post_id) REFERENCES public.posts(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
@@ -440,4 +347,6 @@ INSERT INTO schema_migrations (version) VALUES ('20121225192322');
 INSERT INTO schema_migrations (version) VALUES ('20121229190107');
 
 INSERT INTO schema_migrations (version) VALUES ('20130809232825');
+
+INSERT INTO schema_migrations (version) VALUES ('20180513220052');
 

@@ -86,7 +86,7 @@ class PostsControllerTest < ActionController::TestCase
 
   def test_admin_can_create_a_post
     as_an_admin
-    post :create, { post: valid_post_attributes }
+    post :create, post: valid_post_attributes
     assert_response :redirect
   end
 
@@ -99,7 +99,7 @@ class PostsControllerTest < ActionController::TestCase
 
   def test_admin_can_update_a_post
     as_an_admin
-    put :update, { slug: "a-modest-proposal", post: { content: "It is a melancholy object to those, who walk through this great town, or travel in the country" } }
+    put :update, slug: "a-modest-proposal", post: { content: "It is a melancholy object to those, who walk through this great town, or travel in the country" }
     assert_response :redirect
   end
 

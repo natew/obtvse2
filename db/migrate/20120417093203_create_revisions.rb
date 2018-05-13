@@ -4,7 +4,7 @@ class CreateRevisions < ActiveRecord::Migration
       t.integer :version
       t.text :content
       t.references :post
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

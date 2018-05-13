@@ -87,13 +87,8 @@ GEM
       sprockets (< 4.0)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
-    database_cleaner (1.7.0)
     debug_inspector (0.0.3)
     docile (1.3.0)
-    dotenv (2.4.0)
-    dotenv-rails (2.4.0)
-      dotenv (= 2.4.0)
-      railties (>= 3.2, < 6.0)
     erubi (1.7.1)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -256,8 +251,6 @@ DEPENDENCIES
   coderay
   coffee-rails
   compass-rails
-  database_cleaner
-  dotenv-rails
   jquery-rails
   kaminari
   kramdown

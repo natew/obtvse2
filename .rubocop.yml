@@ -4,10 +4,14 @@ inherit_gem:
 
 AllCops:
   Exclude:
-    - db/*
+    - script/*
+    - config.ru
+    - Rakefile
+    - Capfile
+    - db/**/*
     - bin/*
     - config/**/*
-    - Rakefile
+    - lib/tasks/*.rake
 
 Style/FrozenStringLiteralComment:
   Enabled: false

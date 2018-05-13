@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_filter :require_login, except: [:index, :show, :admin]
-  layout 'admin', except: [:index, :show]
+  layout "admin", except: [:index, :show]
 
   def index
     @posts = Post.published.newest.page(params[:page]).per(8)
@@ -37,11 +37,11 @@ class PostsController < ApplicationController
     if logged_in?
       @no_header = true
       @post = Post.new
-      @published = Post.where(draft:false).order('published_at desc')
-      @drafts = Post.where(draft:true).order('updated_at desc')
+      @published = Post.published.newest
+      @drafts = Post.unpublished.order("updated_at desc")
     else
       if no_users?
-        render 'users/create'
+        render "users/create"
       else
         render_unauthorized
       end
@@ -49,8 +49,8 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new(title: params[:title] || '')
-    @post_path = '/'
+    @post = Post.new(title: params[:title] || "")
+    @post_path = "/"
 
     respond_to do |format|
       format.html
@@ -71,8 +71,8 @@ class PostsController < ApplicationController
         format.xml { render xml: @post, status: :created, location: @post }
         format.text { render text: @post.to_json }
       else
-        format.html { render action: 'new' }
-        format.xml { render xml: @post.errors, status: :unprocessable_entity}
+        format.html { render action: "new" }
+        format.xml { render xml: @post.errors, status: :unprocessable_entity }
         format.text { head :bad_request }
       end
     end
@@ -88,8 +88,8 @@ class PostsController < ApplicationController
         format.xml { head :ok }
         format.text { render text: @post.to_json }
       else
-        format.html { render action: 'edit' }
-        format.xml { render xml: @post.errors, status: :unprocessable_entity}
+        format.html { render action: "edit" }
+        format.xml { render xml: @post.errors, status: :unprocessable_entity }
         format.text { head :bad_request }
       end
     end
@@ -98,10 +98,10 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find_by_slug(params[:slug])
     @post.destroy
-    flash[:notice] = 'Post has been deleted'
+    flash[:notice] = "Post has been deleted"
 
     respond_to do |format|
-      format.html { redirect_to '/admin' }
+      format.html { redirect_to "/admin" }
       format.xml { head :ok }
     end
   end

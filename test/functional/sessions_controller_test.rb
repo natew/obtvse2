@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class SessionsControllerTest < ActionController::TestCase
   test "should get new" do

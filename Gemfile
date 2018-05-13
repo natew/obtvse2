@@ -1,7 +1,6 @@
 source "https://rubygems.org"
 ruby "2.5.0"
 
-gem "dotenv-rails"
 gem "rails", "4.2.10"
 gem "activerecord-session_store"
 gem "pg", "~> 0.18"
@@ -31,7 +30,6 @@ gem "stringex", github: "rsl/stringex"
 group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
-  gem "database_cleaner"
   gem "minitest-rails"
   gem "pry"
   gem "pry-doc"
