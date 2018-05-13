@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title, :slug
       t.text :content
       t.boolean :draft
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

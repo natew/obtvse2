@@ -1,4 +1,4 @@
-require 'kramdown'
+require "kramdown"
 
 module ApplicationHelper
   def is_admin?
@@ -6,7 +6,7 @@ module ApplicationHelper
   end
 
   def markdown(text)
-    Kramdown::Document.new(youtube_embed(text), {
+    Kramdown::Document.new(youtube_embed(text),
       enable_coderay: true,
       coderay_default_lang: :ruby,
       coderay_wrap: :div,
@@ -15,7 +15,7 @@ module ApplicationHelper
       coderay_tab_width: 2,
       coderay_css: :style,
       coderay_bold_every: 10000
-    }).to_html.html_safe
+    ).to_html.html_safe
   end
 
   def youtube_embed(str)
@@ -24,7 +24,7 @@ module ApplicationHelper
       match = line.match(/^http.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*$/)
 
       if match
-        render partial: 'youtube.html', locals: { video: match[1] }
+        render partial: "youtube.html", locals: { video: match[1] }
       else
         line
       end

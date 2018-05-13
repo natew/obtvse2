@@ -15,5 +15,7 @@ Rails.application.config.sorcery.configure do |config|
     user.login_lock_time_period                       = 2.minutes
   end
 
+  config.not_authenticated_action = :render_unauthorized
+
   config.user_class = User
 end

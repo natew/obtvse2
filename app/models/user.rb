@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
 
   before_create :set_username_to_email_name
 
-  private
+private
 
   def set_username_to_email_name
-    self.username = email.gsub(/[@].*/, '')
+    self.username = email.gsub(/[@].*/, "")
   end
 end
