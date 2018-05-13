@@ -1,0 +1,34 @@
+inherit_gem:
+  rubocop-rails:
+    - config/rails.yml
+
+AllCops:
+  Exclude:
+    - db/*
+    - bin/*
+    - config/**/*
+    - Rakefile
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# Style/StringLiterals:
+#   EnforcedStyle: double_quotes
+#   SupportedStyles:
+#     - single_quotes
+#     - double_quotes
+#   # If `true`, strings which span multiple lines using `\` for continuation must
+#   # use the same type of quotes on each line.
+#   ConsistentQuotesInMultiline: false
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Layout/SpaceBeforeBlockBraces:
+  Enabled: false
+
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false
+
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false

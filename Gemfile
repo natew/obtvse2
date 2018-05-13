@@ -1,47 +1,47 @@
-source 'https://rubygems.org'
-ruby '2.5.0'
+source "https://rubygems.org"
+ruby "2.5.0"
 
-gem 'dotenv-rails'
-gem 'rails', '4.2.10'
-gem 'activerecord-session_store'
-gem 'pg', '~> 0.18'
-gem 'puma'
-
+gem "dotenv-rails"
+gem "rails", "4.2.10"
+gem "activerecord-session_store"
+gem "pg", "~> 0.18"
+gem "puma"
 
 # Auth/users
-gem 'sorcery'
-gem 'bcrypt-ruby'
+gem "bcrypt-ruby"
+gem "sorcery"
 
 # Frontend Utilities
-gem 'slim'
-gem 'turbolinks'
-gem 'jquery-rails'
-gem 'compass-rails'
+gem "compass-rails"
+gem "jquery-rails"
+gem "slim"
+gem "turbolinks"
 
 # Markdown
-gem 'kramdown', require: false
-gem 'coderay'
+gem "coderay"
+gem "kramdown", require: false
 
 # Pagination
-gem 'kaminari'
+gem "kaminari"
 
 # Date/URL Utilities
-gem 'chronic'
-gem 'stringex', github: 'rsl/stringex'
+gem "chronic"
+gem "stringex", github: "rsl/stringex"
 
 group :development, :test do
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'database_cleaner'
-  gem 'minitest-rails'
-  gem 'spring'
-  gem 'simplecov', require: false
-  gem 'pry'
-  gem 'rubocop-rails'
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem "database_cleaner"
+  gem "minitest-rails"
+  gem "pry"
+  gem "pry-doc"
+  gem "rubocop-rails"
+  gem "simplecov", require: false
+  gem "spring"
 end
 
 group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
+  gem "coffee-rails"
+  gem "sass-rails"
+  gem "uglifier"
 end

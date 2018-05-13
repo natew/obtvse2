@@ -1,5 +1,5 @@
-Slim::Engine.set_default_options({
+Slim::Engine.set_options({
   pretty: true,
   sort_attrs: false,
-  format: :html5
+  format: :html
 })

@@ -14,19 +14,21 @@ class PostsController < ApplicationController
 
   def show
     @single_post = true
-    @post = Post.find_by_slug(params[:id]) || not_found
+    @post = Post.from_slug(params[:slug])
 
-    not_found if @post.draft and !logged_in?
+    if @post.nil? || (@post.draft && !logged_in?)
+      not_found
+    else
+      @next = Post.next(@post).last
+      @previous = Post.previous(@post).first
 
-    @next = Post.next(@post).last
-    @previous = Post.previous(@post).first
-
-    respond_to do |format|
-      if @post.present?
-        format.html
-        format.xml { render xml: @post }
-      else
-        format.any { render status: 404  }
+      respond_to do |format|
+        if @post.present?
+          format.html
+          format.xml { render xml: @post }
+        else
+          format.any { render status: 404  }
+        end
       end
     end
   end
@@ -41,7 +43,7 @@ class PostsController < ApplicationController
       if no_users?
         render 'users/create'
       else
-        render 'sessions/new'
+        render_unauthorized
       end
     end
   end
@@ -56,7 +58,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:slug])
     @post_path = post_path(@post)
   end
 
@@ -77,7 +79,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = params[:id].to_i.to_s == params[:id] ? Post.find(params[:id]) : Post.find_by_slug(params[:id])
+    @post = Post.from_slug(params[:slug])
     logger.info @post
 
     respond_to do |format|
@@ -94,7 +96,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find_by_slug(params[:id])
+    @post = Post.find_by_slug(params[:slug])
     @post.destroy
     flash[:notice] = 'Post has been deleted'
 
@@ -104,7 +106,7 @@ class PostsController < ApplicationController
     end
   end
 
-  private
+private
 
   def admin?
     session[:admin] == true
