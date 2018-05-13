@@ -1,9 +1,9 @@
 source "https://rubygems.org"
 ruby "2.5.0"
 
-gem "rails", "4.2.10"
+gem "rails", "5.2.0"
 gem "activerecord-session_store"
-gem "pg", "~> 0.18"
+gem "pg"
 gem "puma"
 
 # Auth/users
@@ -33,6 +33,7 @@ group :development, :test do
   gem "minitest-rails"
   gem "pry"
   gem "pry-doc"
+  gem "rails-controller-testing"
   gem "rubocop-rails"
   gem "simplecov", require: false
   gem "spring"

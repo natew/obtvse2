@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :require_login_unless_no_users
+  before_action :require_login_unless_no_users
 
   def create
     @user = User.new(params.require(:user).permit(:email, :password, :password_confirmation))

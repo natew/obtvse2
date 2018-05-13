@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :get_user
+  before_action :get_user
   helper_method :no_users?
 
   def no_users?
@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   end
 
   def render_unauthorized
-    render text: "Unauthorized", status: :unauthorized
+    render plain: "Unauthorized", status: :unauthorized
   end
 
 private

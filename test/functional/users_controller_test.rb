@@ -10,7 +10,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should get create" do
-    post :create, user: {email: "foo@example.com", password: "simple", password_confirmation: "simple"}
+    post :create, params: { user: {email: "foo@example.com", password: "simple", password_confirmation: "simple"} }
     assert_redirected_to admin_path
   end
 

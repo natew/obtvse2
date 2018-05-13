@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :require_login, except: [:index, :show, :admin]
+  before_action :require_login, except: [:index, :show, :admin]
   layout "admin", except: [:index, :show]
 
   def index
@@ -69,7 +69,7 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_to "/edit/#{@post.id}", notice: "Post created successfully" }
         format.xml { render xml: @post, status: :created, location: @post }
-        format.text { render text: @post.to_json }
+        format.text { render json: @post }
       else
         format.html { render action: "new" }
         format.xml { render xml: @post.errors, status: :unprocessable_entity }
@@ -86,7 +86,7 @@ class PostsController < ApplicationController
       if @post.update_attributes(params.require(:post).permit!)
         format.html { redirect_to "/edit/#{@post.id}", notice: "Post updated successfully" }
         format.xml { head :ok }
-        format.text { render text: @post.to_json }
+        format.text { render json: @post }
       else
         format.html { render action: "edit" }
         format.xml { render xml: @post.errors, status: :unprocessable_entity }
